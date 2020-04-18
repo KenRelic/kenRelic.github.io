@@ -1,0 +1,316 @@
+/* reset */
+*,
+html,
+body,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3vw;
+}
+
+main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#user-image {
+  width: 100vw;
+  background-color: rgb(255, 255, 255);
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+}
+
+#user-image img {
+  width: 60%;
+  /* height: 10%; */
+}
+
+#user-data {
+  /* background-color: rgb(149, 30, 133); */
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 -1px 50px rgb(122, 90, 122);
+  padding: 1.5em 1.5em 0 1.5em;
+  border-radius: 3em 3em 0 0;
+  margin-top: -2em;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#user-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+}
+
+#user-level {
+  text-align: end;
+}
+
+#user-level p:nth-of-type(1) {
+  color: rgb(224, 51, 115);
+  font-size: 1.1em;
+}
+
+#user-level p:nth-of-type(2) {
+  color: gray;
+  font-size: 0.9em;
+}
+
+#user-name p:nth-of-type(1) {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+#user-name p:nth-of-type(2) {
+  font-size: 0.8em;
+  color: gray;
+}
+
+#user-name p:nth-of-type(1) span {
+  background-color: rgba(224, 51, 114, 0.748);
+  font-size: 0.4em;
+  padding: 0.05em 0.4em;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: 0.4em;
+  color: #fff;
+}
+
+#skills {
+  margin-top: 2em;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#skills>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(49, 180, 160);
+  width: 20vw;
+  height: 20vw;
+  border-radius: 30vw;
+  font-size: 3vw;
+  margin: 1em;
+
+}
+
+#skills>div>div {
+  height: 15vw;
+  width: 15vw;
+  background-color: #fff;
+  border-radius: 15vw;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#skills #js {
+  background: conic-gradient(rgb(100, 95, 97) 50%, rgba(200, 200, 200, 0.306) 50%);
+}
+#skills #html5 {
+  background: conic-gradient(rgb(100, 95, 97) 70%, rgba(200, 200, 200, 0.306) 70%);
+}
+#skills #css3 {
+  background: conic-gradient(rgb(100, 95, 97)  60%, rgba(200, 200, 200, 0.306) 60%);}
+#skills #ai {
+  background: conic-gradient(rgb(100, 95, 97)  85%, rgba(200, 200, 200, 0.306) 85%);}
+#skills #ps {
+  background: conic-gradient(rgb(100, 95, 97)  90%, rgba(200, 200, 200, 0.306) 90%);}
+#user-accomplishments {
+  margin-top: 3em;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.accomplishment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.accomplishment p:nth-of-type(1) {
+  font-size: 3em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: rgb(255, 109, 133);
+}
+
+.accomplishment p:nth-of-type(2) {
+  color: gray;
+}
+
+#about-user {
+  line-height: 1.5;
+  margin: 3em 0 2em 0;
+}
+
+#about-user header,
+#contact-form header,
+#accomp header,
+#skill-set header {
+  font-size: 5vw;
+  margin: 0.8em 0;
+  color: rgb(49, 180, 160);
+}
+
+#skill-set header{
+  margin-top: 2em;
+}
+
+hr {
+  border: 0.5px solid aquamarine;
+  display: flex;
+}
+
+#about-user .extra-details span {
+  background-color: rgb(224, 51, 115);
+  padding: 0.5em 1em;
+  margin-left: -1.5em;
+  border-radius: 0 1em 1em 0;
+  text-align: start;
+  color: #fff;
+}
+
+#about-user .extra-details {
+  line-height: 1.8;
+  margin: 1.2em 0;
+  background-color: rgb(239, 237, 237);
+  border-radius: 1em;
+  line-height: 2.3;
+  padding: auto 1em;
+}
+
+#contact-user {
+  text-align: center;
+  margin: 3em -2.5em 0 -2.5em;
+  background-color: aquamarine;
+  padding: 2em;
+  display: flex;
+}
+
+#contact-user >span {
+  padding: 0.5em 1em;
+  line-height: 2;
+  background-color: rgb(36, 156, 134);
+  border-radius: 2em;
+  margin-left: 2em;
+  box-shadow: 0 0 20px rgb(144, 175, 177);
+  flex: 1;
+  cursor: pointer;
+  color: #fff;
+  vertical-align: middle;
+}
+
+#contact-user > a>span{
+  color: red;
+  font-size:1.6em;
+}
+
+#contact-user a {
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  padding: 0.2em 1em;
+  box-shadow: 0 0 20px rgb(144, 175, 177);
+  line-height: 2;
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+  margin: auto 0.5em;
+}
+
+#contact-form {
+  background-color: #fff;
+  line-height: 2;
+  position: fixed;
+  left: 0;
+  bottom: -105vh;
+  width: 100vw;
+  padding: 1.5em;
+  border-radius: 3em 3em 0 0;
+  box-shadow: 0 -1px 50px rgb(69, 156, 133);
+  transition: all 0.5s ease-in;
+
+}
+
+#contact-form header {
+  text-align: center;
+  font-weight: 700;
+}
+
+#contact-form label {
+  display: block;
+  color: rgb(224, 51, 115);
+  font-weight: 700;
+}
+
+#contact-form input,
+#contact-form textarea {
+  padding: 1em;
+  border-radius: 1.5em;
+  width: 90%;
+  outline: none;
+  margin-bottom: 1em;
+  background-color: rgb(236, 236, 236);
+  border: none;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: grey;
+}
+
+#submit-btn{
+  width: 90%;
+  margin: 0 auto;
+  line-height: 1.5;
+  border-radius: 1em;
+  border: none;
+  background-color: rgb(224, 51, 115);
+  color: #fff;
+  padding: 0.5em 0;
+
+}
+
+form{
+  position: relative;
+}
+#close-btn{
+  background-color: rgb(224, 51, 115);
+  padding: 0.3em 1em;
+  border-radius: 50%;
+  position: absolute;
+  top: -3em;
+  right: -1em;
+  cursor: pointer;
+}
+
+/* @media screen and (){
+  body{
+    
+    background-color: green;
+  }
+  main{
+    display: none;
+  }
+} */
+
