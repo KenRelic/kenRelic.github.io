@@ -1,4 +1,11 @@
 /* RESET */
+:root {
+    --dark-mode-color: #fff;
+    --dark-mode-bg-color: rgb(29, 2, 56);
+    --light-mode-color: #000;
+    --light-mode-bg-color: #000;
+}
+
 *,
 html,
 body,
@@ -19,20 +26,19 @@ main {
     position: relative;
     background-color: #000;
     overflow: hidden;
+    width: 100vw;
     height: 100vh;
-    width:100vw;
 }
 
 #home-page {
     width: 100vw;
     height: 100vh;
     display: flex;
-    /* display: none; */
     padding: 1em 1em 3em 1em;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background: url(./media/gotbg.png), rgb(13, 4, 31);
+    background: url(./media/gotbg3.png), rgb(13, 4, 31);
     background-blend-mode: color-dodge;
     background-size: cover;
     background-position: center;
@@ -88,7 +94,7 @@ main {
     background-blend-mode: screen;
     background-position: center;
     background-size: cover;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s linear;
 }
 #speaker{
     color:rgb(255, 255, 255);
@@ -195,7 +201,8 @@ main {
     font-weight: 800;
 }
 
-#next-question-btn {
+#next-question-btn,
+#display-score-btn {
     width: 200px;
     line-height: 1.5em;
     border-radius: 1em;
@@ -211,9 +218,15 @@ main {
     border: none;
     color: #fff;
 }
+#display-score-btn{
+    background-color: #900376;
+    box-shadow: 0 4px 20px rgb(141, 32, 143);
+    display:none;
+}
 
 #next-question-btn:hover {
     background-color: green;
+    box-shadow: 0 4px 20px rgb(32, 143, 63);
 }
 
 footer {
@@ -233,7 +246,7 @@ footer {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s linear;
 }
 #score-notification >div{
     width: 100vw;
@@ -265,10 +278,11 @@ footer {
     background-size: cover;
     background-position: center;
 }
+
 #score-modal header {
     font-size: 4em;
     color: #ffffff;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Fredoka One', cursive;
     text-align: center;
     text-shadow: 0 3px 4px #00d0ff, 0 10px #37ff00, 1px 15px #7f0fa1;;
 }
@@ -341,7 +355,7 @@ button {
     #score-section {
         width: 70%;
     }
-
+    
     #title-bar {
         font-size: 3vw;
         line-height: 0.1;
@@ -371,6 +385,12 @@ button {
         width: 50%;
     }
 
+    #home-page h1{
+        font-size: 6vw;
+    }
+    #home-page h2{
+        font-size: 3vw;
+    }
     #title-bar {
         font-size: 2.5vw;
         line-height: 0.1;
@@ -383,6 +403,11 @@ button {
     #speaker{
         margin-left: 48%;
         bottom: 3%;
+    }
+    #home-page input{
+        width: 25%;
+        padding: 0.7em;
+        font-size: 2.5vw;
     }
 }
 
