@@ -1,11 +1,4 @@
 /* RESET */
-:root {
-    --dark-mode-color: #fff;
-    --dark-mode-bg-color: rgb(29, 2, 56);
-    --light-mode-color: #000;
-    --light-mode-bg-color: #000;
-}
-
 *,
 html,
 body,
@@ -26,6 +19,8 @@ main {
     position: relative;
     background-color: #000;
     overflow: hidden;
+    height: 100vh;
+    width:100vw;
 }
 
 #home-page {
