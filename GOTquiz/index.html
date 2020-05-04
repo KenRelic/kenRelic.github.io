@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Simeon Kenneth">
+    <meta charset="description" content="a quiz app">
+    <meta charset="keywords" content="js, quiz, javascript,Html,mini-app,beginner">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GOT Quiz</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <main>
+        <section class="section" id="home-page">
+            <div id="header">
+                <h1>Game Of Thrones</h1>
+                <h2>The Quiz</h2>
+            </div>
+            <input type="button" id="play-btn" value="Play Now">
+        </section>
+        <section id="game-section">
+            <section id="title-bar" class="section">Game Of Thrones: The quiz</section>
+            <section id="score-section" class="section">
+                <div id="score">
+                    <p>Score</p>
+                    <p>90</p>
+                </div>
+            </section>
+            <section id="quiz-progress" class="section">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </section>
+            <section id="question-section" class="section">
+                <header>Question 1 of 5</header>
+                <p id="question"></p>
+                <div id="options">
+                    <p><span>A</span> </p>
+                    <p><span>B</span> </p>
+                    <p><span>C</span> </p>
+                    <p><span>D</span> </p>
+                </div>
+
+                <button id="next-question-btn">Next Question</button>
+            </section>
+            <div id="score-notification">
+                <div></div>
+                <section id="score-modal">
+                    <div id="score-img"></div>
+                    <header></header>
+                    <p></p>
+                    <div></div>
+                    <p></p>
+
+                    <div><button id="home-btn">Home</button><button id="play-again-btn">Play Again</button></div>
+                </section>
+            </div>
+
+        </section>
+        <audio id="got-theme-song" src="./media/game-of-thrones-theme-song-ringtone-30782.mp3"></audio>
+        <span id="speaker">&#128263;</span>
+    </main>
+
+    <!-- <footer>Made with &hearts; by @semanticTSK -- no codeName (a StartNG task) </footer> -->
+    <script src="./main.js"></script>
+</body>
+
+</html>
