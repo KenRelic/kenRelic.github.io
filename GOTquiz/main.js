@@ -4,6 +4,7 @@ let game_section = document.getElementById('game-section');
 const next_question_btn = document.getElementById('next-question-btn');
 let score_modal = document.getElementById('score-notification');
 let home_page = document.getElementById('home-page');
+let get_score_btn = document.getElementById('display-score-btn');
 
 let question_number = document.querySelector('#question-section header');
 let question = document.querySelector('#question-section p:nth-of-type(1)');
@@ -12,13 +13,14 @@ let options = document.querySelectorAll('#options p');
 let gifs = {
     0: ['url(./media/gotnightking.jpeg)', 'Oh Snap', 'The night king is upon us'],
     1: ['url(./media/gotnightking.jpeg)', 'Oh snap', 'The night king is upon us'],
-    2: ['url(./media/jeoffreyclaps.gif)', 'WOW', 'King Jeoffrey is impressed'],
-    3: ['url(./media/jeoffreyclaps.gif)', 'WOW', 'You made king Jeoffrey clap hard'],
-    4: ['url(./media/kotn.gif)', 'Hail Hail', 'You are the King in the North'],
+    2: ['url(./media/jeoffreyclaps-min.gif)', 'WOW', 'King Jeoffrey is impressed'],
+    3: ['url(./media/jeoffreyclaps-min.gif)', 'WOW', 'You made king Jeoffrey clap hard'],
+    4: ['url(./media/kotn-min.gif)', 'Hail Hail', 'You are the King in the North'],
     5: ['url(./media/ironthrone.jpeg)', 'Hail Hail', 'The one true king']
 };
 let home_btn = document.getElementById('home-btn');
 let play_again_btn = document.getElementById('play-again-btn');
+let progress_bar = document.getElementById('quiz-progress');
 
 //data structure
 const question_bank = [
@@ -57,9 +59,19 @@ play_btn.addEventListener('click', load_game_section);
 next_question_btn.addEventListener('click', load_question);
 home_btn.addEventListener('click', go_home);
 play_again_btn.addEventListener('click', play_quiz_again);
+get_score_btn.addEventListener('click', get_score);
 
 options.forEach(option => option.addEventListener('click', check_answer));
 
+window.onload = function () {
+    score.innerHTML = player_score;
+    load_question();
+
+    //play GOT theme song
+    got_theme_song().volume(0.4);
+    got_theme_song().play();
+    got_theme_song().loop();
+}
 function load_game_section() {
     got_theme_song().volume(0.2);
     game_section.style.top = game_section.style.top == '0' ? '101%'
@@ -69,15 +81,16 @@ function load_game_section() {
 
 function go_home() {
     got_theme_song().volume(0.4);
+    next_question_btn.style.display = 'flex';
+    get_score_btn.style.display = 'none';
     score_modal.style.transform = 'scale(0)';
     game_section.style.top = '101%';
-    // play_quiz_again();
 }
 
 function play_quiz_again() {
     score_modal.style.transform = 'scale(0)';
-    // load_question()
-    // load_game_section();
+    get_score_btn.style.display = 'none';
+    next_question_btn.style.display = 'flex';
 }
 
 function load_question() {
@@ -97,6 +110,7 @@ function load_question() {
         options[i].childNodes[1].replaceWith(' ' + question_options[i]);
     };
 
+    load_progress_bar()
     options.forEach(option => {
         option.style = 'pointer-events:initial; background-color:#09a2cc; color: #000';
     });
@@ -117,7 +131,6 @@ function check_answer(e) {
                     }, 200)
                 }
             });
-
         }
 
         //update score if selected option is correct
@@ -130,17 +143,12 @@ function check_answer(e) {
     //select another question from the question bank
     index = Math.floor(Math.random() * questions.length);
     //update the question number
-    number < 5 ? number += 1 : display_score_modal();
-}
-
-window.onload = function () {
-    score.innerHTML = player_score;
-    load_question();
-
-    //play GOT theme song
-    got_theme_song().volume(0.4);
-    got_theme_song().play();
-    got_theme_song().loop();
+    if (number < 5) {
+        number += 1;
+    } else {
+        next_question_btn.style.display = 'none';
+        get_score_btn.style.display = 'flex';
+    }
 }
 
 function display_score_modal() {
@@ -155,19 +163,25 @@ function display_score_modal() {
     }
     document.querySelector('#score-modal div:nth-of-type(2)').innerHTML = stars;
     score_modal.style.transform = 'scale(1)';
-    // debugger
+
     //reset the questions
-    questions = question_bank;
+    questions = [...question_bank];
     number = 1;
     player_score = 0;
     index = Math.floor(Math.random() * questions.length);
-    console.log(questions,index);
+    console.log(questions, index);
     score.innerHTML = player_score;
-    question_number.innerHTML = `Question ${number} of 5`;
-    question.innerHTML = questions[index].question;
+    let options = document.querySelectorAll('#options p');
     options.forEach(option => {
         option.style = 'pointer-events:initial; background-color:#09a2cc; color: #000';
     });
+    load_progress_bar();
+    load_question();
+}
+
+function get_score() {
+    progress_bar.forEach(bar=> bar.style.display = 'none');
+    display_score_modal();
 }
 
 function got_theme_song() {
@@ -201,7 +215,12 @@ function sound_control() {
 }
 
 // progress bar code
-let progress_bar = document.getElementById('quiz-progress');
+function load_progress_bar() {    
+    for (let i = 0; i < number; i += 1) {
+        progress_bar[i].style.display = 'initial';
+    }
+}
+
 
 
 
