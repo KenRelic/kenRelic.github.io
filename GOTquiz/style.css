@@ -1,11 +1,4 @@
 /* RESET */
-:root {
-    --dark-mode-color: #fff;
-    --dark-mode-bg-color: rgb(29, 2, 56);
-    --light-mode-color: #000;
-    --light-mode-bg-color: #000;
-}
-
 *,
 html,
 body,
@@ -27,99 +20,197 @@ main {
     background-color: #000;
 }
 
+#home-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* display: none; */
+    padding: 1em 1em 3em 1em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: url(./media/gotbg.png), rgb(13, 4, 31);
+    background-blend-mode: color-dodge;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    background-repeat: no-repeat;
+}
+
+#home-page input {
+    width: 30%;
+    padding: 1em;
+    border-radius: 1.5em;
+    background: transparent;
+    color: #fff;
+    border-color: rgba(93, 0, 255, 0.374);
+    cursor: pointer;
+    outline: none;
+    font-size: 3vw;
+}
+
+#home-page input:hover {
+    color: #fff;
+    border-color: rgba(93, 0, 255, 0.374);
+    background: rgba(93, 0, 255, 0.374);
+}
+
+#home-page h1 {
+    color: #fff;
+    font-size: 10vw;
+}
+
+#home-page h2 {
+    color: #fff;
+    font-size: 5vw;
+}
+
 .section {
     padding: 1em;
 }
 
+#game-section {
+    position: absolute;
+    display: flex;
+    /* display: none; */
+    
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    top: 101%;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(6, 0, 19);
+    background-image: url('./media/gotnightking.jpeg');
+    background-blend-mode: screen;
+    background-position: center;
+    background-size: cover;
+    transition: all 0.3s ease-in;
+}
+#speaker{
+    color:rgb(255, 255, 255);
+    position: absolute;
+    display: block;
+    font-size: 2.5em;
+    bottom: 2%;
+    /* right: 5%; */
+    margin-left: 45%;
+    z-index: 30;
+    cursor: pointer;
+}
+
 #title-bar {
-    font-size: 2em;
+    width: 85vw;
+    font-size: 5vw;
+    color: #fff;
     text-align: center;
-    width: 100%;
-    background-color: rgb(13, 1, 19);
-    color: rgb(255, 255, 255);
+    border-radius: 2em 2em 0 0;
+    margin: 0 auto;
 }
 
 #score-section {
-    width: 100%;
+    width: 90vw;
     display: flex;
     justify-content: space-evenly;
     text-align: center;
-    background-color: rgb(16, 114, 81);
+    background-color: #09a2cc;
+    border-radius: 2em 2em 0 0;
+    margin: 0 auto;
 }
 
 #score p:nth-of-type(2) {
-    line-height: 0.6;
+    line-height: 0.7;
     font-weight: 700;
+    color:#fff;
     font-size: 3em;
+    margin-bottom: 0.2em;
 }
 
 #quiz-progress {
-    width: 100%;
-    background-color: rgb(205, 245, 245);
+    width: 91vw;
     height: 0.5em;
     line-height: 0.1;
     padding: 0;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
+    margin-top: -0.5em;
+    border-radius: 2em;
 }
 
 #quiz-progress div {
     height: 100%;
-    background-color: rgb(0, 105, 70);
+    background-color: rgb(127, 15, 161);
     flex: 1;
     margin: 0 0.1em;
     border-radius: 0.5em;
+
 }
 
 #question-section {
-    background-color: rgb(29, 27, 27);
-    box-shadow: 0 2px 100px gray;
-    margin: 1em;
+    background-color: rgb(248, 248, 248);
+    box-shadow: 0 2px 80px #080014;
+    margin: 3em 1em;
+    margin: 0 1em;
     border-radius: 1em;
     line-height: 1.5;
+    width: 95%;
 }
 
 #question-section header {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 1.2em;
-    color: orange;
+    color: #3f0355;
 }
+
 
 #question-section #question {
     margin-bottom: 1em;
 }
 
 #options p {
-    background-color: orange;
+    background-color: #09a2cc;
     margin-bottom: 0.5em;
     line-height: 2.5em;
     border-radius: 1.2em;
     padding: 0 0.4em;
     cursor: pointer;
+    color: #000;
+}
 
+#options p:hover {
+    background-color: #70e0ff;
 }
 
 #options p>span {
-    background-color: #fff;
+    background-color: #fbfbfb;
     line-height: 1.5;
     border-radius: 50%;
     padding: 0.4em .8em;
-    box-shadow: 0 0 8px rgb(61, 34, 2);
-    font-weight: 700;
+    box-shadow: 0 0 8px #1464ee;
+    color: #3f0355;
+    font-weight: 800;
 }
 
 #next-question-btn {
-    width: 100%;
+    width: 200px;
     line-height: 1.5em;
     border-radius: 1em;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
     margin-top: 2.5em;
     padding: 0.5em;
     font-size: 1em;
     outline: none;
-    background-color: rgb(0, 105, 70);
+    background-color: rgb(63, 3, 85);
+    box-shadow: 0 4px 20px rgb(121, 51, 226);
     border: none;
     color: #fff;
-   
+}
+
+#next-question-btn:hover {
+    background-color: green;
 }
 
 footer {
@@ -131,54 +222,64 @@ footer {
     color: #fff;
     font-size: 0.8em;
 }
-
+#score-notification {
+    position: absolute;
+    display: flex;
+    transform: scale(0);
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in;
+}
+#score-notification >div{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(10, 1, 42, 0.884);
+    z-index: 1;
+    position: absolute;
+}
 #score-modal {
     width: 90%;
     background-color: #fff;
-    box-shadow: 0 2px 100px gray;
+    height: 80vh;
     border-radius: 1em;
-    position: absolute;
-    top: 20%;
-    margin: 0 5%;
-    padding: 4em 2em 1em 2em;
+    padding: 0 2em 1em 2em;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    align-content: center;
-    z-index: 0;
-    display: none;
-}
-#score-modal::before{
-    content:'';
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.659);
-    position: absolute;
-    top: -25%;
-    left: 0;
-    margin-left: -3em;
-z-index: -10;
-
+    align-items: center;
+    z-index: 10;
+    overflow: hidden;
 }
 
+#score-modal div:nth-of-type(1){
+    width: 130%;
+    height: 60%;
+    margin: 0;
+    background-color: #3f0355;
+    background-image: url(./media/jeoffreyclaps.gif);
+    background-size: cover;
+    background-position: center;
+}
 #score-modal header {
     font-size: 4em;
     color: #ffffff;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
-    text-shadow: 0 3px 4px rgb(0, 208, 255), 0 10px rgb(55, 255, 0), 1px 15px rgb(255, 166, 0);
-}
-
-#score-modal div {
-    color: orange;
-    font-size: 3em;
+    text-shadow: 0 3px 4px #00d0ff, 0 10px #37ff00, 1px 15px #7f0fa1;;
 }
 
 #score-modal div:nth-of-type(2) {
+    color: rgb(55, 255, 0);
+    font-size: 3em;
+}
+
+#score-modal div:nth-of-type(3) {
     width: 100%;
     display: flex;
     justify-content: space-around;
+   
 }
 
 #score-modal div>button {
@@ -189,14 +290,15 @@ z-index: -10;
     outline: none;
     border: none;
     line-height: 1.5;
+    color: #fff;
 }
 
 #home-btn {
-    background-color: orange;
+    background-color: #7f0fa1;;
 }
 
 #play-again-btn {
-    background-color: rgb(125, 183, 164);
+    background-color: #1464ee;
 }
 
 button {
@@ -206,7 +308,78 @@ button {
 }
 
 @keyframes scale {
-    0% {transform: scale(1);}
-    50% {transform: scale(0.8);}
-    100% {transform: scale(1);}
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
+
+@media screen and (min-width: 600px) {
+    #question-section {
+        width: 80%;
+        padding: 2em;
+    }
+
+    #question-section p {
+        margin-top: 1em;
+    }
+
+    #quiz-progress {
+        width: 71%;
+    }
+
+    #score-section {
+        width: 70%;
+    }
+
+    #title-bar {
+        font-size: 3vw;
+        line-height: 0.1;
+        padding: 1em;
+    }
+    #speaker{
+        margin-left: 48%;
+        bottom: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #question-section {
+        width: 60%;
+        padding: 3em 4em;
+    }
+
+    #question-section p {
+        margin-top: 1em;
+    }
+
+    #quiz-progress {
+        width: 50%;
+    }
+
+    #score-section {
+        width: 50%;
+    }
+
+    #title-bar {
+        font-size: 2.5vw;
+        line-height: 0.1;
+        padding: 1em;
+    }
+    #score-modal{
+        width: 60%;
+        height: 70vh;
+    }
+    #speaker{
+        margin-left: 48%;
+        bottom: 3%;
+    }
+}
+
