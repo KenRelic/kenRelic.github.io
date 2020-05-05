@@ -20,7 +20,7 @@ let gifs = {
 };
 let home_btn = document.getElementById('home-btn');
 let play_again_btn = document.getElementById('play-again-btn');
-let progress_bar = document.getElementById('quiz-progress');
+
 
 //data structure
 const question_bank = [
@@ -56,7 +56,7 @@ let number = 1;
 let player_score = 0;
 
 play_btn.addEventListener('click', load_game_section);
-next_question_btn.addEventListener('click', load_question);
+next_question_btn.addEventListener('click', next_question);
 home_btn.addEventListener('click', go_home);
 play_again_btn.addEventListener('click', play_quiz_again);
 get_score_btn.addEventListener('click', get_score);
@@ -91,6 +91,10 @@ function play_quiz_again() {
     score_modal.style.transform = 'scale(0)';
     get_score_btn.style.display = 'none';
     next_question_btn.style.display = 'flex';
+
+    let progress_bar = document.querySelectorAll('#quiz-progress div');
+    progress_bar.forEach(bar => bar.style.display = 'none')
+    load_progress_bar();
 }
 
 function load_question() {
@@ -138,6 +142,10 @@ function check_answer(e) {
         //Prevent clicking after option have been clicked
         options.forEach(option => option.style.pointerEvents = 'none');
     };
+
+}
+
+function next_question() {
     //remove the question from the question bank
     questions.splice(index, 1);
     //select another question from the question bank
@@ -145,10 +153,13 @@ function check_answer(e) {
     //update the question number
     if (number < 5) {
         number += 1;
+        load_question()
     } else {
         next_question_btn.style.display = 'none';
         get_score_btn.style.display = 'flex';
+        options.forEach(option => option.style.pointerEvents = 'none');
     }
+   
 }
 
 function display_score_modal() {
@@ -169,18 +180,18 @@ function display_score_modal() {
     number = 1;
     player_score = 0;
     index = Math.floor(Math.random() * questions.length);
-    console.log(questions, index);
     score.innerHTML = player_score;
     let options = document.querySelectorAll('#options p');
     options.forEach(option => {
         option.style = 'pointer-events:initial; background-color:#09a2cc; color: #000';
     });
+    
     load_progress_bar();
     load_question();
 }
 
 function get_score() {
-    progress_bar.forEach(bar=> bar.style.display = 'none');
+    load_progress_bar()
     display_score_modal();
 }
 
@@ -212,24 +223,17 @@ function sound_control() {
         got_theme_song().play()
         got_theme_song().reload();
     };
-}
+};
 
 // progress bar code
-function load_progress_bar() {    
-    for (let i = 0; i < number; i += 1) {
-        progress_bar[i].style.display = 'initial';
-    }
-}
+function load_progress_bar() {
+    let progress_bar = document.querySelectorAll('#quiz-progress div');
+    if (number <= 5) {
+        for (let i = 0; i < number; i += 1) {
+            progress_bar[i].style.display = 'block';
+        };
+    } else {
+        progress_bar.forEach(bar => bar.style.display = 'none')
+    };
 
-
-
-
-
-
-
-
-
-
-
-
-
+};
