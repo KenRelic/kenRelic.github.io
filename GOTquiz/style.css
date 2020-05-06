@@ -34,8 +34,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background-image: url('./media/gotbgmob-min.jpg');
-    background-color: rgb(13, 4, 31);
+    background: url('./media/gotbgmob.png'), rgb(13, 4, 31);
     background-blend-mode: color-dodge;
     background-size: cover;
     background-position: center;
@@ -81,6 +80,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    top: 0;
     left: 101vw;
     width: 100vw;
     height: 100vh;
@@ -124,7 +124,7 @@ main {
 }
 
 #score p:nth-of-type(2) {
-    line-height: 0.9;
+    line-height: 0.7;
     font-weight: 700;
     color: #fff;
     font-size: 3em;
@@ -246,7 +246,7 @@ main {
     transform: scale(0);
     opacity: 0;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     justify-content: center;
     align-items: center;
     transition: all 0.3s linear;
@@ -264,7 +264,7 @@ main {
 #score-modal {
     width: 90%;
     background-color: #fff;
-    height: 80vh;
+    /* height: 80vh; */
     border-radius: 1em;
     padding: 0 2em 1em 2em;
     text-align: center;
@@ -273,11 +273,12 @@ main {
     align-items: center;
     z-index: 10;
     overflow: hidden;
+    box-shadow: 2px 5px 35px rgba(10, 1, 42, 0.999);
 }
 
 #score-modal div:nth-of-type(1) {
     width: 130%;
-    height: 60%;
+    height: 40vh;
     margin: 0;
     background-color: #3f0355;
     background-size: cover;
@@ -344,7 +345,12 @@ button {
         transform: scale(1);
     }
 }
-
+@media screen and (max-width: 350px){
+    html{
+        font-size: 0.9em;
+        line-height: 1;
+    }
+}
 @media screen and (min-width: 600px) {
     #question-section {
         width: 80%;
@@ -430,4 +436,17 @@ button {
     #footer {
         font-size: 1em;
     }
+}
+
+@media screen and (max-width: 800px) and (orientation: landscape) {
+   main{
+       overflow: auto;
+   }
+   #game-section{
+       height: auto;
+   }
+   #score-notification>div {
+    background-color: rgba(10, 1, 42, 0);
+   }
+  
 }
