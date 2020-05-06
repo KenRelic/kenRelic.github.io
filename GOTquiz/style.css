@@ -125,7 +125,7 @@ main {
 }
 
 #score p:nth-of-type(2) {
-    line-height: 0.7;
+    line-height: 0.9;
     font-weight: 700;
     color: #fff;
     font-size: 3em;
