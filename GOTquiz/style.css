@@ -34,7 +34,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background: url('./media/gotbgmob-min.png'), rgb(13, 4, 31);
+    background: url('./media/gotbgmob-min.jpg'), rgb(13, 4, 31);
     background-blend-mode: color-dodge;
     background-size: cover;
     background-position: center;
