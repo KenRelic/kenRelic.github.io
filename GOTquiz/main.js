@@ -103,8 +103,9 @@ window.addEventListener('blur', function () {
 window.addEventListener('focus', function () {
 }, false);
 
-document.body.onload = function () {
+window.onload = function () {
     score.innerHTML = `${player_score}/5`;
+    document.getElementById('main').style.overflow = 'hidden';
     generate_question();
     load_question();
 };
@@ -127,6 +128,7 @@ function go_home() {
     score_modal.style.opacity = '0';
     game_section.style.left = '101vw';
     document.getElementById('footer').style.display = 'block';
+    document.getElementById('main').style.overflow = 'hidden';
 };
 
 ////// PLAY QUIZ AGAN CODE/////////////////////////////////////////////////////////////////////////
@@ -140,6 +142,7 @@ function play_quiz_again() {
     let progress_bar = document.querySelectorAll('#quiz-progress div');
     progress_bar.forEach(bar => bar.style.display = 'none')
     load_progress_bar();
+    document.getElementById('main').style.overflow = 'auto';
 
 };
 
@@ -153,6 +156,7 @@ function generate_question() {
 /////////// DISPLAY THE GENERATED QUESTION ///////////////////////////////////////////////////////////////////
 function load_question() {
     // display question number and question
+    document.getElementById('main').style.overflow = 'auto';
     question_number.innerHTML = `Question ${number} of 5`;
     question.innerHTML = questions[index].question;
     let question_options = [...questions[index].false_options];
@@ -264,7 +268,7 @@ function sound_control() {
     if (speaker.innerHTML == '🔊') {
         speaker.innerHTML = '🔇';
         got_theme_song().reload();
-        got_theme_song().play();
+        got_theme_song().loop();
     } else {
         speaker.innerHTML = '🔊';
         got_theme_song().pause();
@@ -278,6 +282,7 @@ function got_theme_song() {
         play: () => audio.play(),
         pause: () => audio.pause(),
         loop: () => {
+            audio.play();
             audio.onended = () => {
                 audio.play();
             }
