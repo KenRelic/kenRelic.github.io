@@ -66,7 +66,7 @@ const question_bank = [
     {
         question: "Who is Jaqen H\'ghar?",
         false_options: ['A member of the house of Greyjoy', 'The three-Eyed Raven', 'A member of the house of Bolton'],
-        answer: 'A faceless men of Braavos'
+        answer: 'A faceless man of Braavos'
     },
     {
         question: "What is dead may never die...",
@@ -104,7 +104,7 @@ window.addEventListener('focus', function () {
 }, false);
 
 document.body.onload = function () {
-    score.innerHTML = player_score;
+    score.innerHTML = `${player_score}/5`;
     generate_question();
     load_question();
 };
@@ -172,7 +172,7 @@ function load_question() {
     options.forEach(option => {
         option.style = 'pointer-events:initial; background-color:#09a2cc; color: #000';
     });
-    if(number == 5){
+    if (number == 5) {
         next_question_btn.style.display = 'none';
         get_score_btn.style.display = 'flex';
     }
@@ -196,7 +196,7 @@ function check_answer(e) {
             });
         };
         //update score if selected option is correct
-        (e.target.childNodes[1].data).trim() == questions[index].answer ? score.innerHTML = player_score += 10 : '';
+        (e.target.childNodes[1].data).trim() == questions[index].answer ? score.innerHTML = `${player_score += 1}/5` : '';
         //Prevent clicking after option have been clicked
         options.forEach(option => option.style.pointerEvents = 'none');
     };
@@ -219,14 +219,15 @@ function next_question() {
 
 //SCORE MODAL CODE//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function display_score_modal() {
-    document.querySelector('#score-modal div:nth-of-type(1)').style.backgroundImage = gifs[player_score / 10][0];
-    document.querySelector('#score-modal header').innerHTML = gifs[player_score / 10][1];
-    document.querySelector('#score-modal p:nth-of-type(1)').innerHTML = gifs[player_score / 10][2];
-    document.querySelector('#score-modal p:nth-of-type(2)').innerHTML = `You got ${player_score / 10} question(s) correct out of 5 and your score is ${player_score}`
+    document.querySelector('#score-modal div:nth-of-type(1)').style.backgroundImage = gifs[player_score][0];
+    document.querySelector('#score-modal header').innerHTML = gifs[player_score][1];
+    document.querySelector('#score-modal p:nth-of-type(1)').innerHTML = gifs[player_score][2];
+    let score_area = document.querySelector('#score-modal p:nth-of-type(2)');
+    score_area.innerHTML = `You got ${player_score} question(s) correct out of 5. <br/>Your score is: <br/> <span style='color:green; font-size:2.5em; font-weight:600'> ${player_score}</span>`;
 
     //number of star AS DECIDED BY THE NUMBER OF CORRECT QUESTIONS ANSWERED.
     let stars = '';
-    for (let i = 0; i < player_score / 10; i += 1) {
+    for (let i = 0; i < player_score; i += 1) {
         stars += '&starf;'
     }
     //DISPLAY STARS
@@ -235,18 +236,21 @@ function display_score_modal() {
     score_modal.style.transform = 'scale(1)';
 
     //reset the question bank//////////
-    questions = [...question_bank];
-    number = 1;
-    player_score = 0;
-    index = Math.floor(Math.random() * questions.length);
-    score.innerHTML = player_score;
-    let options = document.querySelectorAll('#options p');
-    //change the color of the options and make them clickable///////////////////
-    options.forEach(option => {
-        option.style = 'pointer-events:initial; background-color:#09a2cc; color: #000';
-    });
-    load_progress_bar();
-    load_question();
+    setTimeout(() => {
+        questions = [...question_bank];
+        number = 1;
+        player_score = 0;
+        index = Math.floor(Math.random() * questions.length);
+        score.innerHTML = `${player_score}/5`;
+        let options = document.querySelectorAll('#options p');
+        //change the color of the options and make them clickable///////////////////
+        options.forEach(option => {
+            option.style = 'pointer-events:initial; background-color:#09a2cc; color: #000';
+        });
+        load_progress_bar();
+        load_question();
+    }, 500)
+
 };
 ///////////// RESET PROGRESS BAR AND DISPLAY THE SCORE NOTIFICATION AREA VIA THE SCORE MODAL/////////////
 function get_score() {
@@ -296,16 +300,3 @@ function load_progress_bar() {
     };
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
